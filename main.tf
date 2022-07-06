@@ -6,11 +6,9 @@ resource "aws_iam_service_linked_role" "es" {
 module "logs_data_es_cluster" {
   source                    = "github.com/AYO32/Terraform-assessment.git"
   name                      = "${var.aws_elasticsearch_domain}"
-  elasticsearch_version     = "${var.elasticsearch_version}"
   vpc_id                    = "${var.vpc_id}"
   subnet_ids                = var.subnet_ids
   zone_id                   = "${var.zone_id}"
-  itype                     = "m4.large.elasticsearch"
   access_policies           = <<CONFIG
 {
     "Version": "2012-10-17",
